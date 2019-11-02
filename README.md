@@ -1,2 +1,0 @@
-# SeaBattle
-Created with CodeSandbox
