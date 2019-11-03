@@ -1,12 +1,24 @@
 import React from "react";
+import { connect } from "react-redux";
 import Board from "./game/view/Board";
 
-const App = () => {
+const App = ({ tiles }) => {
   return (
     <div className="App">
-      <Board />
+      <Board tiles={tiles} />
     </div>
   );
 };
 
-export default App;
+const mapStateToProps = state => {
+  const { tiles } = state;
+
+  return {
+    tiles: {
+      width: tiles.width,
+      layout: tiles.layout.split("")
+    }
+  };
+};
+
+export default connect(mapStateToProps)(App);

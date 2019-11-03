@@ -1,10 +1,10 @@
 import React from "react";
 
-const Tile = () => {
+const Tile = ({ value }) => {
   return (
-    <div>
-      <span>Tile</span>
-    </div>
+    <li>
+      <span>Tile {value}</span>
+    </li>
   );
 };
 

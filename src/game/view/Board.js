@@ -1,10 +1,14 @@
 import React from "react";
 import Tile from "./Tile";
 
-const Board = () => {
+const Board = ({ tiles }) => {
   return (
     <div>
-      <Tile />
+      <ul>
+        {tiles.layout.map((tile, idx) => (
+          <Tile key={idx} value={tile} />
+        ))}
+      </ul>
     </div>
   );
 };
