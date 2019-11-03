@@ -2,7 +2,7 @@ import React from "react";
 
 const Tile = ({ value }) => {
   return (
-    <li>
+    <li className="Tile">
       <span>Tile {value}</span>
     </li>
   );

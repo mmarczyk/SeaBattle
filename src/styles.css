@@ -2,3 +2,16 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+.App ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Tile {
+  background: url("./gfx/tile.png");
+  width: 91px;
+  height: 105px;
+  display: inline-block;
+}
