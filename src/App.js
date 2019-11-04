@@ -10,13 +10,27 @@ const App = ({ tiles }) => {
   );
 };
 
+const transformLayout = (width, layout) => {
+  let l = [];
+  let row = [];
+  for (let i = 0; i < layout.length; i++) {
+    row.push(layout[i]);
+    if (i % width === width - 1) {
+      l.push(row);
+      row = [];
+    }
+  }
+
+  return l;
+};
+
 const mapStateToProps = state => {
   const { tiles } = state;
 
   return {
     tiles: {
       width: tiles.width,
-      layout: tiles.layout.split("")
+      layout: transformLayout(tiles.width, tiles.layout)
     }
   };
 };

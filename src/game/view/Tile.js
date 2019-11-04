@@ -1,8 +1,10 @@
 import React from "react";
 
-const Tile = ({ value }) => {
+const Tile = ({ value, even }) => {
+  const className = "Tile " + even;
+  console.log(className);
   return (
-    <li className="Tile">
+    <li className={className}>
       <span>Tile {value}</span>
     </li>
   );

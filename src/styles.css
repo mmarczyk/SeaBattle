@@ -15,3 +15,11 @@
   height: 105px;
   display: inline-block;
 }
+
+.Tile.even {
+  background-color: red;
+}
+
+.Tile.odd {
+  background-color: blue;
+}
