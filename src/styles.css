@@ -14,12 +14,41 @@
   width: 91px;
   height: 105px;
   display: inline-block;
+  margin-bottom: -31px;
+  position: relative;
 }
 
-.Tile.even {
+.Tile.selected {
+  border: 1px solid black;
+}
+
+.Tile.sea {
+  background: url("./gfx/tile-sea.png");
+}
+
+.Tile.coast-west {
+  background: url("./gfx/tile-coast-west.png");
+}
+
+.Tile.coast-east {
+  background: url("./gfx/tile-coast-east.png");
+}
+
+.Ship {
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -5px;
+  margin-top: -5px;
+}
+
+.Ship.corvette-a {
   background-color: red;
 }
 
-.Tile.odd {
-  background-color: blue;
+.Ship.corvette-b {
+  background-color: yellow;
 }

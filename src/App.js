@@ -1,38 +1,39 @@
 import React from "react";
 import { connect } from "react-redux";
-import Board from "./game/view/Board";
+import BoardView from "./game/view/Board";
+import { tileClicked } from "./store/actions";
 
-const App = ({ tiles }) => {
+const App = () => {
   return (
     <div className="App">
-      <Board tiles={tiles} />
+      <Board />
     </div>
   );
 };
 
-const transformLayout = (width, layout) => {
-  let l = [];
-  let row = [];
-  for (let i = 0; i < layout.length; i++) {
-    row.push(layout[i]);
-    if (i % width === width - 1) {
-      l.push(row);
-      row = [];
-    }
-  }
-
-  return l;
-};
-
 const mapStateToProps = state => {
-  const { tiles } = state;
+  const { tiles, fleet } = state.buildBoard;
+  const { selected } = state.selectShip;
+
+  //console.log(state);
 
   return {
     tiles: {
       width: tiles.width,
-      layout: transformLayout(tiles.width, tiles.layout)
+      layout: tiles.layout,
+      fleet: fleet,
+      selected: selected
     }
   };
 };
+
+const mapDispathToProps = dispatch => ({
+  onTileClicked: (row, col) => dispatch(tileClicked(row, col))
+});
+
+const Board = connect(
+  mapStateToProps,
+  mapDispathToProps
+)(BoardView);
 
 export default connect(mapStateToProps)(App);

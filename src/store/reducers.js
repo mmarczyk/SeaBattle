@@ -1,14 +1,34 @@
-import { RECEIVE_BOARD } from "./actions.js";
+import { combineReducers } from "redux";
+import { RECEIVE_BOARD, SHIP_SELECTED } from "./actions.js";
 
-function buildBoard(state = [], action) {
+const buildBoard = (state = [], action) => {
   switch (action.type) {
     case RECEIVE_BOARD:
       return Object.assign({}, state, {
-        tiles: action.tiles
+        tiles: action.tiles,
+        fleet: action.fleet
       });
     default:
       return state;
   }
-}
+};
 
-export default buildBoard;
+const selectShip = (state = [], action) => {
+  switch (action.type) {
+    case SHIP_SELECTED:
+      return Object.assign({}, state, {
+        selected: action.selected,
+        tiles: state.tiles,
+        fleet: state.fleet
+      });
+    default:
+      return state;
+  }
+};
+
+const app = combineReducers({
+  buildBoard,
+  selectShip
+});
+
+export default app;
