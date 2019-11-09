@@ -46,7 +46,6 @@ export function receiveBoard() {
   };
   return {
     type: RECEIVE_BOARD,
-    //tiles: { width: 6, layout: transformLayout(6, layout) }
     tiles: layout,
     fleet: fleet
   };
@@ -60,12 +59,12 @@ export function fetchBoard() {
 }
 
 const tileClicked = (row, col) => {
-  console.log("clicked: (" + row + ", " + col + ")");
   return {
     type: SHIP_SELECTED,
     selected: {
       row: row,
-      col: col
+      col: col,
+      type: 0
     }
   };
 };

@@ -11,6 +11,10 @@ const shipTypes = {
   2: "corvette-b"
 };
 
+const highlights = {
+  1: "move"
+};
+
 const Tile = ({ type, even, ship, onClick, selected }) => {
   let className = "Tile " + even + " " + tileTypes[type];
   if (ship) {

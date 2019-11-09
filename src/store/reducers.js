@@ -17,9 +17,7 @@ const selectShip = (state = [], action) => {
   switch (action.type) {
     case SHIP_SELECTED:
       return Object.assign({}, state, {
-        selected: action.selected,
-        tiles: state.tiles,
-        fleet: state.fleet
+        selected: action.selected
       });
     default:
       return state;

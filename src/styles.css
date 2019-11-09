@@ -18,8 +18,12 @@
   position: relative;
 }
 
-.Tile.selected {
-  border: 1px solid black;
+.Tile.selected::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  content: " ";
+  background: url("./gfx/tile.png");
 }
 
 .Tile.sea {
